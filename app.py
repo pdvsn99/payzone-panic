@@ -424,8 +424,10 @@ def admin_dashboard():
     return render_template('admin.html')
 
 if __name__ == '__main__':
+    # Ensure the database exists and is initialized
     if not os.path.exists(app.config['DATABASE']):
         with app.app_context():
             init_db()
             add_sample_data()
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=False)
+
